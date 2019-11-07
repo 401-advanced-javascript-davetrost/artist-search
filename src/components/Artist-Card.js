@@ -2,19 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export default function ArtistCard({ id, name }) {
-  const linkPath = `/artist/${name}/${id}`;
+export default function ArtistCard({ id, artist }) {
   return (
     <div>
       <h2>
-        <Link to={linkPath}>{name}</Link>
+        <Link to={`/artist/${artist}/${id}`}>{artist}</Link>
       </h2>
     </div>
   );
 }
 
 ArtistCard.propTypes = {
-  name: PropTypes.string.isRequired,
+  artist: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired
 };
 

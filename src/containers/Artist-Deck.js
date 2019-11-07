@@ -4,10 +4,10 @@ import ArtistCard from '../components/Artist-Card';
 import styles from './Artist-Deck.css';
 
 export default function ArtistDeck({ artists, handleNext, handleBack }) {
-  const cards = artists.map(artist => {
+  const artistCards = artists.map(artist => {
     return (
       <li key={artist.id}>
-        <ArtistCard id={artist.id} name={artist.name} />
+        <ArtistCard id={artist.id} artist={artist.name} />
       </li>
     );
   });
@@ -16,7 +16,7 @@ export default function ArtistDeck({ artists, handleNext, handleBack }) {
     <section className={styles.ArtistDeck}>
       <button onClick={handleBack}>Back</button>
       <ul>
-        {cards}
+        {artistCards}
       </ul>
       <button onClick={handleNext}>Next</button>
     </section>
