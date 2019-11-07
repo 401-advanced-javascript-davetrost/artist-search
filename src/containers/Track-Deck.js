@@ -14,10 +14,14 @@ export default function TrackDeck({ match }) {
       });
   }, [match.params.id]);
 
-  const tracksDom = tracks.map(track => {
+  const trackCards = tracks.map(track => {
     return (
       <li key={track.id} >
-        <TrackCard album={match.params.album} trackName={track.title} artist={match.params.artist} />
+        <TrackCard 
+          album={match.params.album} 
+          track={track.title} 
+          artist={match.params.artist} 
+        />
       </li>
     );
   });
@@ -28,7 +32,7 @@ export default function TrackDeck({ match }) {
         <h2>{match.params.album}</h2>
         <h3>by: {match.params.artist}</h3>
         <ul>
-          {tracksDom}
+          {trackCards}
         </ul>
       </section>
     </>
