@@ -35,10 +35,14 @@ export default class AlbumDeck extends Component {
 
   render() {
 
-    const albumCovers = this.state.albums.map(album => {
+    const albumCards = this.state.albums.map(album => {
       return (
         <li key={album.id}>
-          <AlbumCard artist={this.props.match.params.artist} title={album.title} release_id={album.id} />
+          <AlbumCard 
+            artist={this.props.match.params.artist} 
+            album={album.title} 
+            album_id={album.id} 
+          />
         </li>
       );
     });
@@ -48,7 +52,7 @@ export default class AlbumDeck extends Component {
         <button onClick={this.handleBack}>Back</button>
         <h2>{this.state.name}</h2>
         <ul>
-          {albumCovers}
+          {albumCards}
         </ul>
         <button onClick={this.handleNext}>Next</button>
       </section>
