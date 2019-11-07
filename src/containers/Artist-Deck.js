@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import ArtistCard from '../components/Artist-Card';
 import styles from './Artist-Deck.css';
 
-export default function ArtistDeck({ artists, handleNext, handleBack }) {
+function ArtistDeck({ artists, handleNext, handleBack }) {
   const artistCards = artists.map(artist => {
     return (
       <li key={artist.id}>
@@ -31,3 +31,5 @@ ArtistDeck.propTypes = {
   handleBack: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired
 };
+
+export const MemoArtistDeck = memo(ArtistDeck);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ArtistDeck from './Artist-Deck';
+import { MemoArtistDeck } from './Artist-Deck';
 import Search from '../components/Search';
 import { getArtists } from '../services/artist-api';
 import styles from './Home.css';
@@ -21,7 +21,7 @@ export default function Home() {
     getArtistsByPage(newPage);
     setPage(newPage);
   };
-  
+
   const getArtistsByPage = page => {
     getArtists(search, page)
       .then(({ artists }) => {
@@ -35,7 +35,7 @@ export default function Home() {
         handleSubmit={handleSubmit}
         handleChange={handleChange} 
       />
-      <ArtistDeck
+      <MemoArtistDeck
         artists={artists}
         handleBack={() => handlePageChange(page - 1)}
         handleNext={() => handlePageChange(page + 1)}

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import AlbumCard from '../components/Album-Card';
 import { getAlbums } from '../services/artist-api';
 import styles from './Album-Deck.css';
 
-export default function AlbumDeck() {
+function AlbumDeck() {
   const [albums, setAlbums] = useState([]);
   const [page, setPage] = useState(1);
   const { id, artist } = useParams();
@@ -50,3 +50,5 @@ export default function AlbumDeck() {
   );
 
 }
+
+export const MemoAlbumDeck = memo(AlbumDeck);
