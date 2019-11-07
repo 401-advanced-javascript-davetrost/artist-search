@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import TrackCard from '../components/Track-Card';
 import { getTracks } from '../services/artist-api';
 import styles from './TrackDeck.css';
 
-export default function TrackDeck({ match }) {
+export default function TrackDeck() {
   const [tracks, setTracks] = useState([]);
+  const { id, album, artist } = useParams();
 
   useEffect(() => {
-    getTracks(match.params.id)
+    getTracks(id)
       .then(({ recordings }) => {
         setTracks(recordings);
       });
-  }, [match.params.id]);
+  }, [id]);
 
   const trackCards = tracks.map(track => {
     return (
       <li key={track.id} >
         <TrackCard 
-          album={match.params.album} 
+          album={album} 
           track={track.title} 
-          artist={match.params.artist} 
+          artist={artist} 
         />
       </li>
     );
@@ -29,8 +30,8 @@ export default function TrackDeck({ match }) {
   return (
     <>
       <section className={styles.TrackDeck}>
-        <h2>{match.params.album}</h2>
-        <h3>by: {match.params.artist}</h3>
+        <h2>{album}</h2>
+        <h3>by: {artist}</h3>
         <ul>
           {trackCards}
         </ul>
@@ -38,13 +39,3 @@ export default function TrackDeck({ match }) {
     </>
   );
 }
-
-TrackDeck.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      album: PropTypes.string.isRequired,
-      artist: PropTypes.string.isRequired
-    }).isRequired
-  }).isRequired
-};

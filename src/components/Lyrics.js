@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import getLyrics from '../services/lyrics-api';
 import styles from './Lyrics.css';
 
-export default function Lyrics({ match }) {
-
+export default function Lyrics() {
   const [lyrics, setLyrics] = useState('');
+  const { artist, album, track } = useParams();
 
   useEffect(() => {
-    getLyrics(match.params.artist, match.params.track)
+    getLyrics(artist, track)
       .then(({ lyrics }) => {
         setLyrics(lyrics);
       });
-  }, [match.params.artist, match.params.track]);
-
+  }, [artist, track]);
 
   return (
     <>
       <div className={styles.Lyrics}>
-        <h1>Lyrics for {match.params.track}</h1>
-        <h2>by {match.params.artist} on the album {match.params.album}</h2>
+        <h1>Lyrics for {track}</h1>
+        <h2>by {artist} on the album {album}</h2>
         <pre>{lyrics}</pre>
         {!lyrics &&
           <>
@@ -30,13 +29,3 @@ export default function Lyrics({ match }) {
     </>
   );
 }
-
-Lyrics.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      artist: PropTypes.string.isRequired,
-      album: PropTypes.string.isRequired,
-      track: PropTypes.string.isRequired
-    }).isRequired
-  }).isRequired
-};
