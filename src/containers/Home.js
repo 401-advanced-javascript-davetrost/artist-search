@@ -15,13 +15,13 @@ export default function Home() {
     event.preventDefault();
     getArtistsByPage(page);
   };
-  const handleBack = () => handlePageChange(Math.max(1, page - 1));
-  const handleNext = () => handlePageChange(page + 1);
 
   const handlePageChange = page => {
-    getArtistsByPage(page);
-    setPage(page);
+    const newPage = Math.max(page, 1);
+    getArtistsByPage(newPage);
+    setPage(newPage);
   };
+  
   const getArtistsByPage = page => {
     getArtists(search, page)
       .then(({ artists }) => {
@@ -37,8 +37,8 @@ export default function Home() {
       />
       <ArtistDeck
         artists={artists}
-        handleBack={handleBack}
-        handleNext={handleNext}
+        handleBack={() => handlePageChange(page - 1)}
+        handleNext={() => handlePageChange(page + 1)}
       />
     </div>
   );
