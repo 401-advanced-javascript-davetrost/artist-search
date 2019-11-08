@@ -5,7 +5,7 @@ import styles from './Lyrics.css';
 import Loading from './Loading';
 
 export default function Lyrics() {
-  const { artist, album, track } = useParams();
+  const { artist, track } = useParams();
   const { loading, lyrics } = useLyrics(artist, track);
 
   return (
