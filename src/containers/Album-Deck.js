@@ -29,14 +29,16 @@ function AlbumDeck() {
     <>
       {loading && <Loading />}
       {!loading &&
-        <section className={styles.AlbumDeck}>
-          <button onClick={handleBack}>Back</button>
-          <h2>Albums by: {artist}</h2>
-          <ul>
-            {albumCards}
-          </ul>
-          <button onClick={handleNext}>Next</button>
-        </section>
+        <div className={styles.AlbumDeck}>
+          <h1><span>Albums by:</span> {artist}</h1>
+          <section>
+            <button onClick={handleBack}>Back</button>
+            <ul>
+              {albumCards}
+            </ul>
+            <button onClick={handleNext}>Next</button>
+          </section>
+        </div>
       }
     </>
   );

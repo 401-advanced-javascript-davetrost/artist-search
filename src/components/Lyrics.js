@@ -13,8 +13,8 @@ export default function Lyrics() {
       {loading && <Loading />}
       {!loading && lyrics &&
         <div className={styles.Lyrics}>
-          <h1>Lyrics for {track}</h1>
-          <h2>by {artist} on the album {album}</h2>
+          <h1>{track}</h1>
+          <h2>by: {artist}</h2>
           <pre>{lyrics}</pre>
         </div>
       }
