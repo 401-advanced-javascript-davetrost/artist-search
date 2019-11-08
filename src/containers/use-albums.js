@@ -8,11 +8,18 @@ export function useAlbums(id, page) {
   useEffect(() => {
     setLoading(true);
     getAlbums(id, page)
-      .then(({ releases }) => {
-        setAlbums(releases);
+      .then(({ releases: albums }) => {
+        setAlbums(albums.map(album => addCoverArt(album)));
         setLoading(false);
       });
   }, [id, page]);
+
+  const addCoverArt = album => {
+    const imgUrl = album['cover-art-archive'].front ?
+      `http://coverartarchive.org/release/${album.id}/front` :
+      '/src/assets/album-placeholder.jpg';
+    return { ...album, imgUrl };
+  };
 
   return { loading, albums };
 }

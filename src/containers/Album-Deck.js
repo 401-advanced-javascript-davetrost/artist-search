@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { usePaging } from './use-paging';
-import { useAlbums } from './use-releases';
+import { useAlbums } from './use-albums';
 
 import AlbumCard from '../components/Album-Card';
 import styles from './Album-Deck.css';
@@ -19,6 +19,7 @@ function AlbumDeck() {
           artist={artist} 
           album={album.title} 
           album_id={album.id} 
+          imgUrl={album.imgUrl}
         />
       </li>
     );
