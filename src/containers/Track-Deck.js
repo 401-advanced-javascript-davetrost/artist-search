@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useTracks } from './use-tracks';
+
 import TrackCard from '../components/Track-Card';
-import { getTracks } from '../services/artist-api';
 import styles from './TrackDeck.css';
 
 export default function TrackDeck() {
-  const [tracks, setTracks] = useState([]);
   const { id, album, artist } = useParams();
-
-  useEffect(() => {
-    getTracks(id)
-      .then(({ recordings }) => {
-        setTracks(recordings);
-      });
-  }, [id]);
-
+  const { tracks } = useTracks(id);
+  
   const trackCards = tracks.map(track => {
     return (
       <li key={track.id} >
