@@ -4,6 +4,7 @@ import { getArtists } from '../services/artist-api';
 export function useArtistSearch(page, search) {
   const [artists, setArtists] = useState([]);
   const [artistSearch, setArtistSearch] = useState('');
+  const [data, setData] = useState(false);
   
   const handleSubmit = event => {
     event.preventDefault();
@@ -17,9 +18,10 @@ export function useArtistSearch(page, search) {
       getArtists(artistSearch, page)
         .then(({ artists }) => {
           setArtists(artists);
+          setData(true);
         });
     }
   }, [page, artistSearch]);
 
-  return { artists, handleSubmit };
+  return { data, artists, handleSubmit };
 }
