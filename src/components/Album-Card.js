@@ -9,7 +9,7 @@ export default function AlbumCard({ album, album_id, artist }) {
     <div>
       <Link to={`/artist/${artist}/album/${album}/${album_id}`}>
         <h2>{album}</h2>
-        <Img src={[imgUrl, '/src/assets/album-placeholder.jpg']} alt={'cover art'} />
+        <Img src={[imgUrl, '/src/assets/album-placeholder.jpg']} alt={`cover art for "${album}"`} />
       </Link>
     </div>
   );

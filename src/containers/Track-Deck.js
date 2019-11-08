@@ -4,10 +4,11 @@ import { useTracks } from './use-tracks';
 
 import TrackCard from '../components/Track-Card';
 import styles from './TrackDeck.css';
+import Loading from '../components/Loading';
 
 export default function TrackDeck() {
   const { id, album, artist } = useParams();
-  const { tracks } = useTracks(id);
+  const { loading, tracks } = useTracks(id);
   
   const trackCards = tracks.map(track => {
     return (
@@ -23,13 +24,16 @@ export default function TrackDeck() {
 
   return (
     <>
-      <section className={styles.TrackDeck}>
-        <h2>{album}</h2>
-        <h3>by: {artist}</h3>
-        <ul>
-          {trackCards}
-        </ul>
-      </section>
+      {loading && <Loading />}
+      {!loading &&
+        <section className={styles.TrackDeck}>
+          <h2>{album}</h2>
+          <h3>by: {artist}</h3>
+          <ul>
+            {trackCards}
+          </ul>
+        </section>
+      }
     </>
   );
 }

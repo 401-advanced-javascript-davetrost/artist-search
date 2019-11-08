@@ -5,11 +5,12 @@ import { useAlbums } from './use-releases';
 
 import AlbumCard from '../components/Album-Card';
 import styles from './Album-Deck.css';
+import Loading from '../components/Loading';
 
 function AlbumDeck() {
   const { id, artist } = useParams();
   const { page, handleBack, handleNext } = usePaging();
-  const { albums } = useAlbums(id, page);
+  const { loading, albums } = useAlbums(id, page);
   
   const albumCards = albums.map(album => {
     return (
@@ -24,14 +25,19 @@ function AlbumDeck() {
   });
 
   return (
-    <section className={styles.AlbumDeck}>
-      <button onClick={handleBack}>Back</button>
-      <h2>Albums by: {artist}</h2>
-      <ul>
-        {albumCards}
-      </ul>
-      <button onClick={handleNext}>Next</button>
-    </section>
+    <>
+      {loading && <Loading />}
+      {!loading &&
+        <section className={styles.AlbumDeck}>
+          <button onClick={handleBack}>Back</button>
+          <h2>Albums by: {artist}</h2>
+          <ul>
+            {albumCards}
+          </ul>
+          <button onClick={handleNext}>Next</button>
+        </section>
+      }
+    </>
   );
 
 }
