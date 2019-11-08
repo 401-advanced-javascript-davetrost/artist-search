@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lyrics component renders Loading 1`] = `
+<Fragment>
+  <div
+    className="Lyrics"
+  >
+    <h1>
+      Sorry, no lyrics found!
+    </h1>
+    <img
+      src="/src/assets/giphy.gif"
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`Lyrics component renders Lyrics 1`] = `
+<Fragment>
+  <div
+    className="Lyrics"
+  >
+    <h1>
+      Sorry, no lyrics found!
+    </h1>
+    <img
+      src="/src/assets/giphy.gif"
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`Lyrics component renders Lyrics not found 1`] = `
+<Fragment>
+  <div
+    className="Lyrics"
+  >
+    <h1>
+      Sorry, no lyrics found!
+    </h1>
+    <img
+      src="/src/assets/giphy.gif"
+    />
+  </div>
+</Fragment>
+`;
