@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders Footer 1`] = `
+<footer
+  className="Footer"
+>
+  <p>
+    © Abbey, Angela, Pat, and Dave
+  </p>
+</footer>
+`;
+
+exports[`Header component renders Header 1`] = `
+<header
+  className="Header"
+>
+  <h1>
+    Artist Search
+  </h1>
+  <nav>
+    <Link
+      to="/"
+    >
+      Home
+    </Link>
+  </nav>
+</header>
+`;
+
+exports[`Loading component renders Loading 1`] = `
+<div
+  className="Loading"
+>
+  <img
+    src="/src/assets/loading.gif"
+  />
+</div>
+`;
