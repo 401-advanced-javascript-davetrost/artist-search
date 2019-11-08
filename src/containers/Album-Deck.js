@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { usePaging } from './use-paging';
 import { useAlbums } from './use-releases';
