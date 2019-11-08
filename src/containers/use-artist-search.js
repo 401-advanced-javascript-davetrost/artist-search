@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { getArtists } from '../services/artist-api';
 
-export function useArtistSearch(page, search) {
+export function useArtistSearch(page) {
   const [artists, setArtists] = useState([]);
+  const [search, setSearch] = useState('');
   const [artistSearch, setArtistSearch] = useState('');
   const [data, setData] = useState(false);
   
+  const handleChange = ({ target }) => setSearch(target.value);
+
   const handleSubmit = event => {
     event.preventDefault();
     setArtistSearch(search);
@@ -23,5 +26,5 @@ export function useArtistSearch(page, search) {
     }
   }, [page, artistSearch]);
 
-  return { data, artists, handleSubmit };
+  return { data, artists, handleSubmit, handleChange };
 }

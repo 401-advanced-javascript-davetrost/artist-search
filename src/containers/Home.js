@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSearch } from './use-search';
 import { usePaging } from './use-paging';
 import { useArtistSearch } from './use-artist-search';
 
@@ -8,9 +7,8 @@ import Search from '../components/Search';
 import styles from './Home.css';
 
 export default function Home() {
-  const { search, handleChange } = useSearch();
   const { page, handleBack, handleNext } = usePaging();
-  const { data, artists, handleSubmit } = useArtistSearch(page, search);
+  const { data, artists, handleChange, handleSubmit } = useArtistSearch(page);
   
   return (
     <div className={styles.Home}>
