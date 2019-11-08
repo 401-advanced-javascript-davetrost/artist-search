@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import getLyrics from '../services/lyrics-api';
+import { useLyrics } from '../containers/use-lyrics';
 import styles from './Lyrics.css';
 
 export default function Lyrics() {
-  const [lyrics, setLyrics] = useState('');
   const { artist, album, track } = useParams();
-
-  useEffect(() => {
-    getLyrics(artist, track)
-      .then(({ lyrics }) => {
-        setLyrics(lyrics);
-      });
-  }, [artist, track]);
+  const { lyrics } = useLyrics(artist, track);
 
   return (
     <>
