@@ -1,31 +1,16 @@
 import React, { memo, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { usePaging } from './use-paging';
+import { useAlbums } from './use-releases';
+
 import AlbumCard from '../components/Album-Card';
-import { getAlbums } from '../services/artist-api';
 import styles from './Album-Deck.css';
 
 function AlbumDeck() {
-  const [albums, setAlbums] = useState([]);
-  const [page, setPage] = useState(1);
   const { id, artist } = useParams();
-
-  useEffect(() => {
-    getReleases(page);
-  }, [page]);
-
-  const handlePageChange = page => {
-    const newPage = Math.max(page, 1);
-    getReleases(newPage);
-    setPage(newPage);
-  };
-
-  const getReleases = page => {
-    getAlbums(id, page)
-      .then(({ releases }) => {
-        setAlbums(releases);
-      });
-  };
-
+  const { page, handleBack, handleNext } = usePaging();
+  const { albums } = useAlbums(id, page);
+  
   const albumCards = albums.map(album => {
     return (
       <li key={album.id}>
@@ -40,12 +25,12 @@ function AlbumDeck() {
 
   return (
     <section className={styles.AlbumDeck}>
-      <button onClick={() => handlePageChange(page - 1)}>Back</button>
+      <button onClick={handleBack}>Back</button>
       <h2>Albums by: {artist}</h2>
       <ul>
         {albumCards}
       </ul>
-      <button onClick={() => handlePageChange(page + 1)}>Next</button>
+      <button onClick={handleNext}>Next</button>
     </section>
   );
 
