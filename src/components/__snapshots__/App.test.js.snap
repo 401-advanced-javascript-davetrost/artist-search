@@ -18,7 +18,13 @@ exports[`App component renders App 1`] = `
       path="/artist/:artist/album/:album/:id"
     />
     <Route
-      component={[Function]}
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "compare": null,
+          "type": [Function],
+        }
+      }
       path="/artist/:artist/:id"
     />
   </Switch>
