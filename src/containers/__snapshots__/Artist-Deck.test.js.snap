@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Artist Deck component renders a list of artists 1`] = `
+<section
+  className="ArtistDeck"
+>
+  <button
+    name="back"
+    onClick={[MockFunction]}
+  >
+    Back
+  </button>
+  <ul>
+    <li
+      key="1"
+    >
+      <ArtistCard
+        artist="Hanky"
+        id="1"
+      />
+    </li>
+    <li
+      key="2"
+    >
+      <ArtistCard
+        artist="Panky"
+        id="2"
+      />
+    </li>
+  </ul>
+  <button
+    name="next"
+    onClick={[MockFunction]}
+  >
+    Next
+  </button>
+</section>
+`;

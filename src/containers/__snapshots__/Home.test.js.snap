@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component renders a list of artists 1`] = `
+<div
+  className="Home"
+>
+  <Search
+    handleChange={[Function]}
+    handleSubmit={[Function]}
+  />
+  <Memo(ArtistDeck)
+    artists={
+      Array [
+        "ABBA",
+        "Beatles",
+        "Led Zep",
+        "MIA",
+      ]
+    }
+    handleBack={[Function]}
+    handleNext={[Function]}
+  />
+</div>
+`;
+
+exports[`Home component renders the initial state 1`] = `
+<div
+  className="Home"
+>
+  <Search
+    handleChange={[Function]}
+    handleSubmit={[Function]}
+  />
+</div>
+`;

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Track Deck component renders a list of tracks 1`] = `
+<Fragment>
+  <section
+    className="TrackDeck"
+  >
+    <h2>
+      American Beauty
+    </h2>
+    <h3>
+      by: 
+      Grateful Dead
+    </h3>
+    <ul>
+      <li
+        key="1"
+      >
+        <TrackCard
+          album="American Beauty"
+          artist="Grateful Dead"
+          track="Box of Rain"
+        />
+      </li>
+      <li
+        key="2"
+      >
+        <TrackCard
+          album="American Beauty"
+          artist="Grateful Dead"
+          track="Friend of the Devil"
+        />
+      </li>
+      <li
+        key="3"
+      >
+        <TrackCard
+          album="American Beauty"
+          artist="Grateful Dead"
+          track="Attics of My Life"
+        />
+      </li>
+    </ul>
+  </section>
+</Fragment>
+`;
+
+exports[`Track Deck component renders the loading state 1`] = `
+<Fragment>
+  <Loading />
+</Fragment>
+`;
