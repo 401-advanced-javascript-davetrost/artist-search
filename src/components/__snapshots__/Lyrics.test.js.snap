@@ -2,16 +2,7 @@
 
 exports[`Lyrics component renders Loading 1`] = `
 <Fragment>
-  <div
-    className="Lyrics"
-  >
-    <h1>
-      Sorry, no lyrics found!
-    </h1>
-    <img
-      src="/src/assets/giphy.gif"
-    />
-  </div>
+  <Loading />
 </Fragment>
 `;
 
@@ -21,11 +12,15 @@ exports[`Lyrics component renders Lyrics 1`] = `
     className="Lyrics"
   >
     <h1>
-      Sorry, no lyrics found!
+      phony rappers
     </h1>
-    <img
-      src="/src/assets/giphy.gif"
-    />
+    <h2>
+      by: 
+      Tribe Called Qwest
+    </h2>
+    <pre>
+      Phony rappers. Who do not write. Phony rappers. Who do not excite. Phony rappers. Check it out, aight
+    </pre>
   </div>
 </Fragment>
 `;
