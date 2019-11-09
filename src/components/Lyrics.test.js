@@ -4,11 +4,11 @@ import Lyrics from './Lyrics';
 
 import reactRouterMock from 'react-router-dom';
 jest.mock('react-router-dom', () => ({}));
+reactRouterMock.useParams = () => ({ artist: 'Tribe Called Qwest', track: 'phony rappers' });
 
 import useLyricsMock from '../containers/use-lyrics.js';
 jest.mock('../containers/use-lyrics.js', () => ({}));
 
-reactRouterMock.useParams = () => ({ artist: 'Tribe Called Qwest', track: 'phony rappers' });
 
 describe('Lyrics component', () => {
   

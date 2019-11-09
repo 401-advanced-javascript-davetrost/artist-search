@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlbumDeck component renders a list of albums 1`] = `
+<Fragment>
+  <div
+    className="AlbumDeck"
+  >
+    <h1>
+      <span>
+        Albums by:
+      </span>
+       
+      Radiohead
+    </h1>
+    <section>
+      <button
+        onClick={[Function]}
+      >
+        Back
+      </button>
+      <ul>
+        <li
+          key="1"
+        >
+          <AlbumCard
+            album="The Bends"
+            album_id="1"
+            artist="Radiohead"
+            imgUrl="www.randomimage.com"
+          />
+        </li>
+        <li
+          key="2"
+        >
+          <AlbumCard
+            album="Amnesiac"
+            album_id="2"
+            artist="Radiohead"
+            imgUrl="www.randomimage.com"
+          />
+        </li>
+        <li
+          key="3"
+        >
+          <AlbumCard
+            album="Kid A"
+            album_id="3"
+            artist="Radiohead"
+            imgUrl="www.randomimage.com"
+          />
+        </li>
+      </ul>
+      <button
+        onClick={[Function]}
+      >
+        Next
+      </button>
+    </section>
+  </div>
+</Fragment>
+`;
+
+exports[`AlbumDeck component renders the loading state 1`] = `
+<Fragment>
+  <Loading />
+</Fragment>
+`;
