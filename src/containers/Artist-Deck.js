@@ -14,11 +14,11 @@ function ArtistDeck({ artists, handleNext, handleBack }) {
 
   return (
     <section className={styles.ArtistDeck}>
-      <button onClick={handleBack}>Back</button>
+      <button name="back" onClick={handleBack}>Back</button>
       <ul>
         {artistCards}
       </ul>
-      <button onClick={handleNext}>Next</button>
+      <button name="next" onClick={handleNext}>Next</button>
     </section>
   );
 }
